@@ -12,56 +12,50 @@ def Questao1():
 
 def Questao2(a):
     #para executar essa questão defina a variavel "A"
-    x, y = 0, 1
+    primeiro, segundo = 0, 1
     seq=[]
     print("Verifique se o número faz parte da sequencia de fibonacci")
     for _ in range(a):
-        seq.append(x)
-        print(x, end=" \n")
-        b = x + y
-        x = y
-        y = b
-    z = int(input("\nDigite um número\n"))
-    if z in seq:
-        print(f"o número {z} pertence a sequencia de fibonacci")
+        seq.append(primeiro)
+        print(primeiro, end=" \n")
+        resultado = primeiro + segundo
+        primeiro = segundo
+        segundo = resultado
+    Num1 = int(input("\nDigite um número\n"))
+    if Num1 in seq:
+        print(f"o número {Num1} pertence a sequencia de fibonacci")
     else:
-        print(f"o número {z} não pertence a sequencia de fibonacci")
+        print(f"o número {Num1} não pertence a sequencia de fibonacci")
     
 
 def Questao3():
     with open("dados.json","r")as file:
         dados = json.load(file)
     valores = [item["valor"] for item in dados if item["valor"] > 0]
-    x = min(valores)
-    y = max(valores)
-    mm = sum(valores) / len(valores)
-    z = sum(1 for valor in valores if valor > mm)
+    fatu_min = min(valores)
+    fatu_max = max(valores)
+    media_fatu = sum(valores) / len(valores)
+    superior_media = sum(1 for valor in valores if valor > media_fatu)
 
-    print("O menor faturamento diario foi:", x)
-    print("O maior faturamento diario foi:", y)
-    print("Os dia que o Faturamento diario passou a media mensal", z)
+    print("O menor faturamento diario foi:", fatu_min)
+    print("O maior faturamento diario foi:", fatu_max)
+    print("Os dia que o Faturamento diario passou a media mensal", superior_media)
 
 
 def Questao4():
     fatu = [67836.43, 36678.66, 29229.48, 27165.48, 19849.53]
-    x = sum(fatu)
-    y = [(valor / x) * 100 for valor in fatu]
+    total = sum(fatu)
+    porcetagem = [(valor / total) * 100 for valor in fatu]
 
-    print(f"O valor de todos os faturamento e R${x}")
+    print(f"O valor de todos os faturamento e R${total}")
     estado = ["SP", "RJ", "MG","ES","Outros"]
-    for est, fatuporcetagem in zip(estado,y):
-        print(est,fatuporcetagem)
+    for est, fatuporcetagem in zip(estado,porcetagem):
+        print(est,fatuporcetagem,"%")
 
 
 def Questao5():
-   x = str(input("Escreva qualquer palavra\n"))
-   y = x[::-1]
-   print(y)
+   palavra = str(input("Escreva qualquer palavra\n"))
+   inversor = palavra[::-1]
+   print(inversor)
 
-if __name__ == "__main__":
-    pass
-    estados = ["DF", "SP", "MG"]
-    parcial = [1, 2, 3]
-
-    for est, par in zip(estados, parcial):
-        print(est, par)
+Questao4()
